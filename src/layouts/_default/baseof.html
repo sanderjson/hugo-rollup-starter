@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge; chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {{if .IsHome}}{{ .Site.Title }} {{else}} {{ .Title }} | {{ .Site.Title }}
+      {{end}}
+    </title>
+    <!-- stylesheet -->
+    <!-- rss alternate -->
+    <!-- themecolor -->
+    <!-- scripts -->
+    {{ block "site/head-scripts" . }}{{ partial "site/head-scripts.html" . }}{{ end }}
+    {{ block "site/head-styles" . }}{{ partial "site/head-styles.html" . }}{{ end }}
+    {{ block "site/head-meta" . }}{{ partial "site/head-meta.html" . }}{{ end }}
+  </head>
+
+  <body data-barba="wrapper">
+  <button id="#id" class="btn">Click Here OK</button>
+
+    <h1 class="text-6xl bg-blue-500">THIS IS THE SITE HEADER</h1>
+    {{ block "header" . }}{{ partial "site/header.html" . }}{{ end }}
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ block "footer" . }}{{ partial "site/footer.html" . }}{{ end }}
+  </body>
+</html>

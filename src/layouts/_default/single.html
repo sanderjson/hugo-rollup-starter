@@ -1,0 +1,12 @@
+{{ define "main" }}
+
+<div data-barba="container" data-barba-namespace="post">
+  <h1 class="text-2xl">This is the single page</h1>
+
+  <article>
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </article>
+</div>
+
+{{ end }}

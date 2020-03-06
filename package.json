@@ -1,0 +1,32 @@
+{
+  "name": "hugo-rollup-starter",
+  "version": "1.0.0",
+  "description": "Hugo jamstack starter with rollup",
+  "main": "/src/assets/main.js",
+  "scripts": {
+    "clean": "rimraf src/assets/bundle/* dist/*",
+    "start": "npm run start:rollup & npm run start:hugo",
+    "start:rollup": "NODE_ENV=development rollup -cw",
+    "start:hugo": "NODE_ENV=development hugo -vw server -s src -d ../dist --gc --renderToDisk",
+    "build": "npm run build:rollup && npm run build:hugo",
+    "build:rollup": "NODE_ENV=production rollup -c",
+    "build:hugo": "NODE_ENV=production hugo -s src -d ../dist --gc --minify"
+  },
+  "author": "Jonathan Sanderson | @sanderjson",
+  "license": "ISC",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "@rollup/plugin-buble": "^0.21.1",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-replace": "^2.3.1",
+    "autoprefixer": "^9.7.4",
+    "postcss": "^7.0.27",
+    "postcss-import": "^12.0.1",
+    "postcss-modules": "^1.5.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^1.32.0",
+    "rollup-plugin-livereload": "^1.0.4",
+    "rollup-plugin-serve": "^1.0.1",
+    "tailwindcss": "^1.2.0"
+  }
+}

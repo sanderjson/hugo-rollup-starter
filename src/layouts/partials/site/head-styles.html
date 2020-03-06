@@ -1,0 +1,18 @@
+<!-- production -->
+{{ if eq "production" (getenv "NODE_ENV") }}
+  {{ if (fileExists "./assets/bundle/bundle.css") }}
+    {{ $css := resources.Get "bundle/bundle.css" | minify }}
+    {{ $secureCSS := $css | resources.Fingerprint "sha256" }}
+    <link rel="stylesheet" href="{{ $secureCSS.Permalink | relURL  }}" integrity="{{ $secureCSS.Data.Integrity }}" type="text/css" crossorigin="anonymous"> 
+  {{ end }}
+{{ end }}
+
+<!-- development -->
+{{ if eq "development" (getenv "NODE_ENV") }}
+    {{ $css := resources.Get "css/main.css" }}
+    {{ $style := $css | resources.PostCSS (dict "config" "./assets/postcss.config.js" "inlineImports" true) }}
+    <link rel="stylesheet" href="{{ $style.Permalink | relURL  }}" type="text/css" crossorigin="anonymous"> 
+{{ end }}
+
+
+
