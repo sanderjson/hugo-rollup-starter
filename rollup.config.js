@@ -3,6 +3,7 @@ import buble from "@rollup/plugin-buble";
 import replace from "@rollup/plugin-replace";
 import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
+import postcss from "rollup-plugin-postcss";
 
 const production = process.env.NODE_ENV === "production" ? true : false;
 
@@ -16,6 +17,11 @@ export default {
     clearScreen: false
   },
   plugins: [
+    production &&
+      postcss({
+        extract: false,
+        modules: true
+      }),
     commonjs(),
     buble({
       exclude: "node_modules/**"
@@ -23,7 +29,7 @@ export default {
     replace({
       exclude: "node_modules/**",
       ENV: JSON.stringify(process.env.NODE_ENV || "development")
-    }),
+    })
     // !production &&
     //   serve({
     //     open: true,

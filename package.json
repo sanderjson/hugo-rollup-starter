@@ -2,13 +2,13 @@
   "name": "hugo-rollup-starter",
   "version": "1.0.0",
   "description": "Hugo jamstack starter with rollup",
-  "main": "/src/assets/main.js",
   "scripts": {
     "clean": "rimraf src/assets/bundle/* dist/*",
     "start": "npm run start:rollup & npm run start:hugo",
     "start:rollup": "NODE_ENV=development rollup -cw",
     "start:hugo": "NODE_ENV=development hugo -vw server -s src -d ../dist --gc --renderToDisk",
-    "build": "npm run build:rollup && npm run build:hugo",
+    "build": "npm run build:parcel && npm run build:rollup && npm run build:hugo",
+    "build:parcel": "NODE_ENV=production parcel build ./src/assets/css/main.css --no-cache",
     "build:rollup": "NODE_ENV=production rollup -c",
     "build:hugo": "NODE_ENV=production hugo -s src -d ../dist --gc --minify"
   },
@@ -20,13 +20,26 @@
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-replace": "^2.3.1",
     "autoprefixer": "^9.7.4",
+    "parcel": "^2.0.0-alpha.3.2",
     "postcss": "^7.0.27",
     "postcss-import": "^12.0.1",
     "postcss-modules": "^1.5.0",
     "rimraf": "^3.0.2",
     "rollup": "^1.32.0",
     "rollup-plugin-livereload": "^1.0.4",
+    "rollup-plugin-postcss": "^2.2.0",
     "rollup-plugin-serve": "^1.0.1",
     "tailwindcss": "^1.2.0"
+  },
+  "browser": "./src/assets/bundle/bundle.css",
+  "targets": {
+    "browser": {
+      "engines": {
+        "browsers": [
+          "> 1%",
+          "not dead"
+        ]
+      }
+    }
   }
 }
