@@ -1,8 +1,27 @@
 baseURL = "/"
 languageCode = "en"
-title = "Hugo Rollup Starter"
+# title = "Hugo Rollup Starter"
+
+[Author]  
+  name = "Jonathan Sanderson"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "dracula"
+    tabWidth = 4
 
 [params]
-disallow_search_engines = true # set robots.txt to disallow everything
-description = "An site wide description search engines will like"
-author = "Jonathan Sanderson"
+  description = "Text about my cool site"
+  images = []
+  title = "Jonathan Sanderson | Development & Design"

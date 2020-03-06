@@ -3,7 +3,7 @@ import buble from "@rollup/plugin-buble";
 import replace from "@rollup/plugin-replace";
 // import serve from "rollup-plugin-serve";
 // import livereload from "rollup-plugin-livereload";
-import postcss from "rollup-plugin-postcss";
+// import postcss from "rollup-plugin-postcss";
 import resolve from "@rollup/plugin-node-resolve";
 
 const production = process.env.NODE_ENV === "production" ? true : false;
