@@ -19,6 +19,7 @@
     "@fullhuman/postcss-purgecss": "^2.1.0",
     "@rollup/plugin-buble": "^0.21.1",
     "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-replace": "^2.3.1",
     "autoprefixer": "^9.7.4",
     "gsap": "^3.2.4",
