@@ -1,2 +1,36 @@
-node_modules/
-dist/
+# Ignore docs files
+.vscode
+.prettierrc
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*~
+# *.lock
+
+# OS or Editor folders
+*.scssc
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+.asset-cache
+
+# Environment Variables
+.env
+
+# Folders to ignore
+node_modules
+dist
+.parcel-cache
+src/resources
+
