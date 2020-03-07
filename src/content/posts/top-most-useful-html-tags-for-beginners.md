@@ -48,9 +48,9 @@ Lists are used to display consecutive items. Lists can either be ordered (<ol>) 
 ```html
 
     <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
     </ul>
 
 ```

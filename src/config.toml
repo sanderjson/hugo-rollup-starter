@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en"
-# title = "Hugo Rollup Starter"
+title = "Hugo Rollup Starter"
 
 [Author]  
   name = "Jonathan Sanderson"
@@ -22,6 +22,6 @@ languageCode = "en"
     tabWidth = 4
 
 [params]
+  title = "Jonathan Sanderson | Development & Design"
   description = "Text about my cool site"
   images = []
-  title = "Jonathan Sanderson | Development & Design"

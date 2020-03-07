@@ -1,6 +1,6 @@
 ---
 title: "My Homepage"
-date: 2020-02-29T18:03:01-07:00
+date: 2020-02-29
 draft: false
 description: "homepage description"
 ---

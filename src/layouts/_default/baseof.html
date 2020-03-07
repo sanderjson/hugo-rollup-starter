@@ -20,12 +20,12 @@
     {{ block "site/head-meta" . }}{{ partial "site/head-meta.html" . }}{{ end }}
   </head>
 
-  <body data-barba="wrapper">
-  <a  class="btn" href="/">Click here to return home</a>
-    <h1 class="text-6xl bg-blue-500">THIS IS THE SITE HEADER</h1>
+  <body >
     {{ block "header" . }}{{ partial "site/header.html" . }}{{ end }}
+    <main data-barba="wrapper">
       {{ block "main" . }}{{ end }}
     </main>
     {{ block "footer" . }}{{ partial "site/footer.html" . }}{{ end }}
   </body>
+
 </html>
