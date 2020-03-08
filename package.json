@@ -6,7 +6,7 @@
     "clean": "rimraf src/assets/bundle/* dist/*",
     "start": "npm run start:rollup & npm run start:hugo",
     "start:rollup": "NODE_ENV=development rollup -cw",
-    "start:hugo": "NODE_ENV=development hugo -vw server -s src -d ../dist --gc --renderToDisk",
+    "start:hugo": "NODE_ENV=development hugo -vw server -s src -d ../dist",
     "build": "npm run build:parcel && npm run build:rollup && npm run build:hugo",
     "build:parcel": "NODE_ENV=production parcel build ./src/assets/css/main.css --no-cache",
     "build:rollup": "NODE_ENV=production rollup -c",

@@ -2,8 +2,8 @@
 audio: []
 date: "2020-01-17"
 description: Short list of some simple bash commands to help beginners navigate a Unix and Unix-like environment
-images:
-- post-cover.png
+image: ["img1.jpg"]
+slug: "top-common-bash-linux-commands-for-beginners"
 tags: ["code"]
 title:  Top Common Bash Linux Commands for Beginners
 videos: []

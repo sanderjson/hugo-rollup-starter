@@ -2,8 +2,8 @@
 audio: []
 date: "2019-12-30"
 description: A short how to guide on adding Tailwindcss functionality to the Netlify Victor Hugo starter boilerplate.
-images:
-- post-cover.png
+image: ["img1.jpg"]
+slug: "add-tailwindcss-functionality-to-hugo-site-using-victor-hugo-boilerplate"
 tags: ["code", "guide", "jamstack"]
 title:  Add Tailwindcss functionality to Hugo site using Victor Hugo Boilerplate
 videos: []

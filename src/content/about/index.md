@@ -7,7 +7,6 @@ tags: []
 title:
 videos: []
 draft: false
-headless: true
 ---
 
 # About About

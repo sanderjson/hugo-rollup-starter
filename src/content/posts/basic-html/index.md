@@ -2,8 +2,8 @@
 audio: []
 date: "2020-01-06"
 description: A short how to guide on adding Tailwindcss functionality to the Netlify Victor Hugo starter boilerplate.
-images:
-- post-cover.png
+image: ["img1.jpg"]
+slug: "top-most-useful-html-tags-for-beginners"
 tags: ["code", "SEO"]
 title:  Top Most Useful HTML Tags for Beginners
 videos: []

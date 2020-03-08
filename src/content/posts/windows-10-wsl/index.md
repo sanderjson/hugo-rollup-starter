@@ -2,9 +2,9 @@
 audio: []
 date: "2019-12-30"
 description: A short guide on how to add Windows Subsystem for Linux (WSL) to Windows 10. 
-images:
-- post-cover.png
+image: ["img1.jpg"]
 tags: ["code", "guide"]
+slug: "how-to-access-the-windows-subsystem-for-linux-wsl-on-windows-10"
 title: How to Access the Windows Subsystem for Linux (WSL) on Windows 10
 videos: []
 draft: false

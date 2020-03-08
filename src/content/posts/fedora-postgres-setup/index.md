@@ -2,10 +2,10 @@
 audio: []
 date: "2020-02-27"
 description: Short guide on how to set up a clean install of PostgreSQL 12 on Fedora 31. Useful for new users struggling to follow multiple blogs and stackoverflow solutions.
-images:
-- post-cover.png
+image: ["img1.jpg"]
+slug: "how-to-set-up-postgresql-12-on-fedora-31"
 tags: ["code", "guide", "linux"]
-title:  Top Most Useful HTML Tags for Beginners
+title:  How to Set Up PostgreSQL 12 on Fedora 31
 videos: []
 draft: false
 ---

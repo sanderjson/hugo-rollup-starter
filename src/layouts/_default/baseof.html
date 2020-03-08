@@ -20,12 +20,15 @@
     {{ block "site/head-meta" . }}{{ partial "site/head-meta.html" . }}{{ end }}
   </head>
 
-  <body >
-    {{ block "header" . }}{{ partial "site/header.html" . }}{{ end }}
-    <main data-barba="wrapper">
-      {{ block "main" . }}{{ end }}
-    </main>
-    {{ block "footer" . }}{{ partial "site/footer.html" . }}{{ end }}
+  <body>
+    <div data-barba="wrapper">
+
+      <main data-barba="container">
+        {{ block "main" . }}{{ end }}
+      </main>
+      
+      {{ block "footer" . }}{{ partial "site/footer.html" . }}{{ end }}
+    </div>
   </body>
 
 </html>

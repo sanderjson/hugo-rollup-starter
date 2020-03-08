@@ -10,6 +10,7 @@
 <!-- development -->
 {{ if eq "development" (getenv "NODE_ENV") }}
   <script src="https://unpkg.com/@barba/core"></script>
+  <script src="https://unpkg.com/@barba/router"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
   {{ if (fileExists "./assets/bundle/bundle.js") }}
     {{ $js := resources.Get "bundle/bundle.js" }}

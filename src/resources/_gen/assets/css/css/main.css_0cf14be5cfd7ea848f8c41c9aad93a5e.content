@@ -13980,11 +13980,12 @@ pre {
 }
 
 .post {
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .test {
-  opacity: 1;
+  font-size: 24px;
+  background: red;
 }
 
 @media (min-width: 640px) {
