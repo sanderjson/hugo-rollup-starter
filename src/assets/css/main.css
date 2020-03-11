@@ -13,15 +13,27 @@ body {
   /* font-size: 2rem; */
 }
 
-pre {
+.post pre {
+  position: relative;
   overflow-x: scroll;
+  @apply my-4 rounded;
 }
 
-.post {
-  /* opacity: 0; */
+.post p {
+  @apply text-lg;
 }
 
 .test {
- font-size: 24px;
- background: red;
+  font-size: 24px;
+  background: red;
+}
+
+/* JS HOVER TRANSITIONS */
+
+.io-post .io-post--overlay  {
+  mix-blend-mode: multiply;
+}
+
+.io-post .on .io-post--overlay {
+  opacity: 1;
 }

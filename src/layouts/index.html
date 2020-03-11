@@ -1,6 +1,6 @@
 {{ define "main" }}
-<!-- page heading -->
 
+<!-- page heading -->
 <div class="py-12 bg-white">
   <div class="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-screen-xl lg:px-8">
     <div class="md:flex md:items-center md:justify-between">
@@ -128,6 +128,8 @@
   </div>
 </div>
 
+{{ partial "components/big-text"}}
+
 <section class="about bg-blue-900 text-white">
   {{ with .Site.GetPage "/about" }} {{ .Content }} {{ end }}
 </section>
@@ -135,16 +137,11 @@
 <section class="about bg-blue-500 text-white">
   {{ with .Site.GetPage "/testimonials" }}
     {{ range .Params.testimonials }}
-    <div>
-      {{.name }}
-    </div>
-    <hr />
-    <div>
-      {{ .quote }}
-    </div>
+      {{ partial "components/testimonial" (dict "name" .name "quote" .quote) }}
     {{ end }}
   {{ end }}
 </section>
 
-{{ partial "components/postlist.html" . }}
+{{ partial "components/posts/postlist.html" . }}
+
 {{ end }}

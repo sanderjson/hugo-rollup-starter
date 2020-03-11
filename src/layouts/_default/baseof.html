@@ -22,6 +22,7 @@
 
   <body>
     <div data-barba="wrapper">
+      {{ block "header" . }}{{ partial "site/header.html" . }}{{ end }}
 
       <main data-barba="container">
         {{ block "main" . }}{{ end }}

@@ -10,10 +10,12 @@ draft: false
 headless: true
 testimonials:
 - name: "Friendly Fred"
-  quote: "everything is awesome"
+  quote: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illum consequuntur quis eligendi optio quos sit mollitia, rem repellendus dolore asperiores omnis libero. Dolorem, molestias sit atque omnis accusamus aliquam!
+"
   services: ["development", "design", "strategy"]
 - name: "Daisy Dina"
-  quote: "had such a good time"
+  quote: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illum consequuntur quis eligendi optio quos sit mollitia, rem repellendus dolore asperiores omnis libero. Dolorem, molestias sit atque omnis accusamus aliquam!
+"
   services: ["development", "design", "strategy"]
 ---
 
