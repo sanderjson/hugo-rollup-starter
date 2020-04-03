@@ -13973,6 +13973,7 @@ video {
 body {
   /* background: rgb(226, 215, 215); */
   /* font-size: 2rem; */
+  position: relative;
 }
 
 .post pre {
@@ -13992,14 +13993,53 @@ body {
   background: red;
 }
 
+.heading-attention {
+  font-size: 144px;
+}
+
 /* JS HOVER TRANSITIONS */
 
-.io-post .io-post--overlay  {
+.io-post .io-post--overlay {
   mix-blend-mode: multiply;
 }
 
 .io-post .on .io-post--overlay {
   opacity: 1;
+}
+
+.scroll-container {
+  max-height: 100vh;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.scroll-child {
+  scroll-snap-align: start;
+  padding-top: 20%;
+}
+
+.scroll-child:nth-of-type(2n) {
+  background: aliceblue;
+}
+
+.scroll-child--header {
+  scroll-snap-align: start;
+  padding-top: 0;
+}
+
+#canvasContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 8px solid red;
+  /* overflow: hidden;
+  width: 100%;
+  height: 100%; */
+  /* z-index: -1; */
+  /* position: fixed; */
 }
 
 @media (min-width: 640px) {

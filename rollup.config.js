@@ -11,8 +11,11 @@ const production = process.env.NODE_ENV === "production" ? true : false;
 export default {
   input: "./src/assets/main.js",
   output: {
+    format: "umd",
     file: "./src/assets/bundle/bundle.js",
-    format: "umd"
+    // dir: "./src/assets/bundle/",
+    // entryFileNames: '[name]-[hash].js',
+    // chunkFileNames: '[name]-[hash].js',
   },
   watch: {
     clearScreen: false
