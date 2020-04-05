@@ -1,4 +1,7 @@
 {{ define "main"}}
+<article class="scroll-child">
+  {{ partial "components/headers/header-attention" (dict "text" .Params.type )}}
+</article>
 
 <div class="bg-gray-50 pt-12 sm:pt-16">
   {{ partial "components/headers/header-postlist.html"}}

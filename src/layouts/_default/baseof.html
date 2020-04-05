@@ -24,20 +24,21 @@
   </head>
 
   <body  data-barba="wrapper">
-    <div style="opacity: 0.5; pointer-events: none" id="canvasContainer"></div>
-    <section class="scroll-container" data-barba="container">
-    <header class="scroll-child scroll-child--header h-screen" role="banner">
-        {{ block "header" . }}{{ partial "site/header.html" . }}{{ end }}
-      </header>
-    
+    <div style="pointer-events: none" id="canvasContainer"></div>
+
+  {{ partial "site/nav.html" . }}
+
+
+  
+  <section data-barba="container">
       <main>
         {{ block "main" . }}{{ end }}
       </main>
-
-      <footer class="bg-white" role="contentinfo">
-        {{ block "footer" . }}{{ partial "site/footer.html" . }}{{ end }}
-      </footer>  
     </section>
+
+    <footer class="bg-white" role="contentinfo">
+      {{ block "footer" . }}{{ partial "site/footer.html" . }}{{ end }}
+    </footer>  
   </body>
 
 </html>

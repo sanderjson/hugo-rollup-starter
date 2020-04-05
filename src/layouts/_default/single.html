@@ -1,5 +1,7 @@
 {{ define "main" }}
 
-  <div class="test">This is the default single page</div>
+<article class="scroll-child">
+  {{ partial "components/headers/header-attention" (dict "text" .Params.type )}}
+</article>
 
 {{ end }}

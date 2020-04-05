@@ -1,5 +1,15 @@
-@import './tailwind/tailwind.css';
-@import './tailwind/tailwind.utilities.css';
+/* @import './tailwind/tailwind.css';
+@import './tailwind/tailwind.utilities.css'; */
+
+/* tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* utilities */
+.btn {
+  @apply bg-red-500 font-bold py-2 px-4 rounded no-underline border inline-block mb-2;
+}
 
 .example {
   display: grid;
@@ -41,11 +51,6 @@ body {
 .io-post .on .io-post--overlay {
   opacity: 1;
 }
-.scroll-container {
-  max-height: 100vh;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
 
 .scroll-child {
   scroll-snap-align: start;
@@ -66,10 +71,5 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  border: 8px solid red;
-  /* overflow: hidden;
-  width: 100%;
-  height: 100%; */
-  /* z-index: -1; */
-  /* position: fixed; */
+  border: 1px solid teal;
 }

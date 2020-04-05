@@ -1,18 +1,18 @@
-import commonjs from "@rollup/plugin-commonjs";
-import buble from "@rollup/plugin-buble";
-import replace from "@rollup/plugin-replace";
+import commonjs from '@rollup/plugin-commonjs'
+import buble from '@rollup/plugin-buble'
+import replace from '@rollup/plugin-replace'
 // import serve from "rollup-plugin-serve";
 // import livereload from "rollup-plugin-livereload";
 // import postcss from "rollup-plugin-postcss";
-import resolve from "@rollup/plugin-node-resolve";
+import resolve from '@rollup/plugin-node-resolve'
 
-const production = process.env.NODE_ENV === "production" ? true : false;
+const production = process.env.NODE_ENV === 'production' ? true : false
 
 export default {
-  input: "./src/assets/main.js",
+  input: './src/assets/main.js',
   output: {
-    format: "umd",
-    file: "./src/assets/bundle/bundle.js",
+    format: 'umd',
+    file: './src/assets/bundle/bundle.js'
     // dir: "./src/assets/bundle/",
     // entryFileNames: '[name]-[hash].js',
     // chunkFileNames: '[name]-[hash].js',
@@ -24,11 +24,12 @@ export default {
     resolve(),
     commonjs(),
     buble({
-      exclude: "node_modules/**"
+      exclude: 'node_modules/**',
+      transforms: {dangerousForOf: true}
     }),
     replace({
-      exclude: "node_modules/**",
-      ENV: JSON.stringify(process.env.NODE_ENV || "development")
+      exclude: 'node_modules/**',
+      ENV: JSON.stringify(process.env.NODE_ENV || 'development')
     })
     // !production &&
     //   serve({
@@ -50,4 +51,4 @@ export default {
     //     verbose: true
     //   })
   ]
-};
+}
