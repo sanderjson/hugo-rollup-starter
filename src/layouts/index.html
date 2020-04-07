@@ -1,28 +1,33 @@
 {{ define "main" }}
-<header id="header" class="scroll-child scroll-child--header" role="banner">
-  {{ block "header" . }}{{ partial "site/header.html" . }}{{ end }}
+
+<header id="header" class="section-fullscreen" role="banner">
+  {{ block "header" . }}{{ partial "site/header-home.html" . }}{{ end }}
 </header>
 
-  <article class="scroll-child">
-  {{ partial "components/headers/header-attention" (dict "text" "services")}}
+<article class="section-fullscreen">
+  <a href="./services/">
+    {{ partial "components/headers/header-attention" (dict "text" "services")}}
+  </a>
 
-    <div>
-      <span>Development</span>
-      <span>Design</span>
-      <span>Digital Strategy</span>
-    </div>
-  </article>
+  <div>
+    <a href="./services/#1">
+      <span>Web Design & Development</span>
+    </a>
+    <a href="./services/#2">
+      <span>Brand Identity</span>
+    </a>
+    <a href="./services/#3">
+      <span>Educational Direction</span>
+    </a>
+  </div>
+</article>
 
-  <article class="scroll-child">
-    {{ partial "components/headers/header-attention" (dict "text" "blog")}}
-  </article>
+<article class="section-fullscreen">
+  {{ partial "components/headers/header-attention" (dict "text" "blog")}}
+</article>
 
-  <article class="scroll-child">
-    {{ partial "components/headers/header-attention" (dict "text" "portfolio")}}
-  </article>
-
-  <article class="scroll-child">
-    {{ partial "components/headers/header-attention" (dict "text" "contact")}}
-  </article>
+<article class="section-fullscreen">
+  {{ partial "components/headers/header-attention" (dict "text" "contact")}}
+</article>
 
 {{ end }}

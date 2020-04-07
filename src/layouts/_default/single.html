@@ -1,7 +1,9 @@
 {{ define "main" }}
 
-<article class="scroll-child">
+<section class="section-fullscreen" role="banner">
   {{ partial "components/headers/header-attention" (dict "text" .Params.type )}}
-</article>
+</section>
+
+{{ .Content}}
 
 {{ end }}

@@ -26,17 +26,15 @@
   <body  data-barba="wrapper">
     <div style="pointer-events: none" id="canvasContainer"></div>
 
-  {{ partial "site/nav.html" . }}
+    {{ partial "site/nav.html" . }}
 
-
-  
-  <section data-barba="container">
+    <section data-barba="container">
       <main>
         {{ block "main" . }}{{ end }}
       </main>
     </section>
 
-    <footer class="bg-white" role="contentinfo">
+    <footer id="footer" class="bg-white" role="contentinfo">
       {{ block "footer" . }}{{ partial "site/footer.html" . }}{{ end }}
     </footer>  
   </body>

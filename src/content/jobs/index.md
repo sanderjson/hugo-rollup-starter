@@ -9,6 +9,7 @@ tags: []
 title: "This is the jobs page"
 type: "jobs"
 videos: []
+headless: true
 ---
 
 # Jobs Jobs

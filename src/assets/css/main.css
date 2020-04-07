@@ -11,6 +11,9 @@
   @apply bg-red-500 font-bold py-2 px-4 rounded no-underline border inline-block mb-2;
 }
 
+html {
+  /* scroll-behavior: smooth; */
+}
 .example {
   display: grid;
   transition: all 0.5s;
@@ -52,19 +55,7 @@ body {
   opacity: 1;
 }
 
-.scroll-child {
-  scroll-snap-align: start;
-  padding-top: 20%;
-}
-.scroll-child:nth-of-type(2n) {
-  background: aliceblue;
-}
-
-.scroll-child--header {
-  scroll-snap-align: start;
-  padding-top: 0;
-}
-
+/* PixiJS canvas */
 #canvasContainer {
   position: fixed;
   top: 0;
@@ -72,4 +63,13 @@ body {
   bottom: 0;
   right: 0;
   border: 1px solid teal;
+}
+
+.section-fullscreen {
+  border: 2px solid purple;
+  min-height: 568px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

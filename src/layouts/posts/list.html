@@ -1,11 +1,12 @@
 {{ define "main"}}
-<article class="scroll-child">
+
+<section class="section-fullscreen" role="banner">
   {{ partial "components/headers/header-attention" (dict "text" .Params.type )}}
-</article>
+</section>
 
 <div class="bg-gray-50 pt-12 sm:pt-16">
   {{ partial "components/headers/header-postlist.html"}}
-  {{ range .Paginator.Pages }}
+  {{ range  .Paginator.Pages }}
     {{ partial "components/posts/post-listview.html" . }}
   {{ end }}
 </div>

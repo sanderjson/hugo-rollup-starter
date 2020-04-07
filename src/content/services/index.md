@@ -11,6 +11,55 @@ type: "services"
 videos: []
 ---
 
-# Services Services
+# Services
 
-Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.
+This is the general content about all the services that I offer. This includes: custom developments and design, brand identity packages, and custom courses and content delivery.
+
+## Web Development
+{{< sectionFullscreen text="Web Development" >}}
+
+ - high performance
+ - modern technology stack
+ - future proof
+
+{{< /sectionFullscreen >}}
+
+### Jamstack
+
+### Web Apps
+
+### Content Strategy
+
+
+## Web Design
+{{< sectionFullscreen text="Web Design" >}}
+
+ - custom design
+ - fully responsive
+{{< /sectionFullscreen >}}
+
+
+## Brand Identity
+{{< sectionFullscreen text="Branding" >}}
+
+  - unique brands
+  - custom logos
+
+{{< /sectionFullscreen >}}
+
+
+## Custom Courses
+{{< sectionFullscreen text="Courses" >}}
+
+  - new courses
+  - educational delicery
+{{< /sectionFullscreen >}}
+
+
+
+<!-- {{< test color="yellow" >}}
+
+{{< test2 >}}
+this is the text of the second shortcode 
+{{< /test >}} -->
+
