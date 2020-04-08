@@ -135,9 +135,11 @@ const ioHandleIntersect = (entries) => {
 }
 
 const io = new IntersectionObserver(ioHandleIntersect, ioOptions)
-
+const canvasContainer = document.getElementById('canvasContainer')
 window.addEventListener('load', (event) => {
-  pixiApp()
+  if (canvasContainer) {
+    pixiApp()
+  }
   observePostList()
   barba.init(barbaOptions)
 })

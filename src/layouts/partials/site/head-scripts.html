@@ -2,6 +2,8 @@
 {{ if eq "production" (getenv "NODE_ENV") }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/PixiPlugin.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/PixiPlugin.min.js" defer></script>
+
 {{ if (fileExists "./assets/bundle/bundle.js") }}
     {{ $js := resources.Get "bundle/bundle.js" }}
     {{ $secureJS := $js | resources.Fingerprint "sha256" }}

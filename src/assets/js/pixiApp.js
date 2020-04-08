@@ -1,5 +1,5 @@
 import {storeInstance} from './store.js'
-import * as PIXI from 'pixi.js'
+// import * as PIXI from 'pixi.js'
 export const pixiApp = () => {
   // register the plugin
   gsap.registerPlugin(PixiPlugin)
