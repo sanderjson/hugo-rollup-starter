@@ -4,6 +4,10 @@ title = "Jonathan Sanderson"
 
 [Author]  
   name = "Jonathan Sanderson"
+  tagline = "Development & Design"
+  about = "I help business owners unleash their earning potential.  I design and build custom digital assets to fullfill a vision. I embrace new technology. I teach new new developers and lead them to discover their potential"
+  button1 = "Click here to send me a message"
+  button2 = "Click here to see how I can help"
 
 [taxonomies]
   category = "categories"

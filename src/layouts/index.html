@@ -1,33 +1,16 @@
 {{ define "main" }}
 
 <header id="header" class="section-fullscreen" role="banner">
-  {{ block "header" . }}{{ partial "site/header-home.html" . }}{{ end }}
+  {{ partial "components/headers/header-home.html" . }}
 </header>
 
-<article class="section-fullscreen">
-  <a href="./services/">
-    {{ partial "components/headers/header-attention" (dict "text" "services")}}
+{{ range .Pages.ByWeight }}
+
+<section class="section-fullscreen">
+  <a href="{{.RelPermalink}}">
+    {{ partial "components/headers/header-attention" (dict "text" .Type)}}
   </a>
+  {{.Params.description}}
+</section>
 
-  <div>
-    <a href="./services/#1">
-      <span>Web Design & Development</span>
-    </a>
-    <a href="./services/#2">
-      <span>Brand Identity</span>
-    </a>
-    <a href="./services/#3">
-      <span>Educational Direction</span>
-    </a>
-  </div>
-</article>
-
-<article class="section-fullscreen">
-  {{ partial "components/headers/header-attention" (dict "text" "blog")}}
-</article>
-
-<article class="section-fullscreen">
-  {{ partial "components/headers/header-attention" (dict "text" "contact")}}
-</article>
-
-{{ end }}
+{{ end }} {{ end }}

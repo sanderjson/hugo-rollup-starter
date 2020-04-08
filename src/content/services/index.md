@@ -5,10 +5,12 @@ description: "This is the services description"
 draft: false
 headless: false
 images: []
+isOnHomePage: true
 tags: []
-title: "This is the servicesS page"
+title: "This is the services page"
 type: "services"
 videos: []
+Weight: 1
 ---
 
 # Services
