@@ -1,32 +1,21 @@
 import barba from '@barba/core'
 import gsap from 'gsap'
 import {pixiApp} from './js/pixiApp.js'
-import {storeInstance} from './js/store.js'
 
 console.log(window.location.href)
 
-// listeners
-// const buttonHome1 = document.getElementById('home-button-1')
+const buttonHomePause = document.getElementById('home-button-pause')
+const buttonHomeReset = document.getElementById('home-button-reset')
 
-// buttonHome1.addEventListener('click', () => {
-//   storeInstance.dispatch('togglePlayAction')
-//   console.log('this will toggle play', storeInstance.state.play)
-// })
+const eventPause = new Event('togglePause', {})
+const eventReset = new Event('reset', {})
 
-// const buttonHome2 = document.getElementById('home-button-2')
+buttonHomePause.addEventListener('click', () => {
+  document.dispatchEvent(eventPause)
+})
 
-// buttonHome2.addEventListener('click', () => {
-//   storeInstance.dispatch('updateTitle', {
-//     text: 'The new text for the title',
-//   })
-//   console.log('this is the current state of play', storeInstance.state.play)
-// })
-
-const buttonHome = document.getElementById('home-button')
-
-buttonHome.addEventListener('click', () => {
-  storeInstance.dispatch('togglePlayAction')
-  console.log('this is the current state of play', storeInstance.state.play)
+buttonHomeReset.addEventListener('click', () => {
+  document.dispatchEvent(eventReset)
 })
 
 const barbaOptions = {
@@ -44,6 +33,7 @@ const barbaOptions = {
           onStart: function () {
             // removePostList()
             console.log('started leave')
+            document.dispatchEvent(eventReset)
           },
           onComplete: function () {
             console.log('completed leave')

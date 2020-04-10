@@ -2,29 +2,49 @@
 <html lang="en">
   <head>
     {{ template "_internal/opengraph.html" . }}
-    {{ template "_internal/twitter_cards.html" . }}
+    {{ template  "_internal/twitter_cards.html" . }}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge; chrome=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
       {{if .IsHome}}
-        {{ .Site.Title }}
+      {{ .Site.Title }}
       {{else}}
-        {{ .Title }} | {{ .Site.Title }}
+      {{ .Title }} | {{ .Site.Title }}
       {{end}}
     </title>
     <!-- stylesheet -->
     <!-- rss alternate -->
     <!-- themecolor -->
     <!-- scripts -->
-    {{ block "site/head-scripts" . }}{{ partial "site/head-scripts.html" . }}{{ end }}
-    {{ block "site/head-styles" . }}{{ partial "site/head-styles.html" . }}{{ end }}
-    {{ block "site/head-meta" . }}{{ partial "site/head-meta.html" . }}{{ end }}
+    {{ block "site/head-scripts" . }}
+    {{ partial "site/head-scripts.html" . }}
+    {{ end }}
+    {{ block "site/head-styles" . }}
+    {{ partial "site/head-styles.html" .  }}
+    {{ end }}
+    {{ block "site/head-meta" . }}
+    {{ partial "site/head-meta.html" .  }}
+    {{ end }}
   </head>
 
-  <body  data-barba="wrapper">
-    <div style="pointer-events: none" id="canvasContainer"></div>
+  <body data-barba="wrapper">
+    <div style="pointer-events: none;" id="canvasContainer"></div>
+    <div class="flex absolute top-0">
+      <div
+        id="home-button-pause"
+        class="p-4 z-20 left-0 border-black border-2 bg-teal-100"
+      >
+        Play / Pause
+      </div>
+      <div
+        id="home-button-reset"
+        class="p-4  z-20 left-0 border-black border-2 bg-teal-100"
+      >
+        Reset
+      </div>
+    </div>
 
     {{ partial "site/nav.html" . }}
 
@@ -36,7 +56,6 @@
 
     <footer id="footer" class="bg-white" role="contentinfo">
       {{ block "footer" . }}{{ partial "site/footer.html" . }}{{ end }}
-    </footer>  
+    </footer>
   </body>
-
 </html>

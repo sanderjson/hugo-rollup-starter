@@ -7,7 +7,6 @@ headless: false
 images: []
 isOnHomePage: true
 tags: []
-title: "This is the services page"
 type: "services"
 videos: []
 Weight: 1

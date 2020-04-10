@@ -1,4 +1,3 @@
-import {storeInstance} from './store.js'
 // import * as PIXI from 'pixi.js'
 export const pixiApp = () => {
   // register the plugin
@@ -41,138 +40,188 @@ export const pixiApp = () => {
     app.ticker.update()
   })
 
-  app.loader.add('bunny', 'bunny.png').load((loader, resources) => {})
+  app.loader
+    .add('bg', '../texture-portrait-690x1227.webp')
+    .add('bunny', '../bunny.png')
+    .load((loader, resources) => {
+      const bg = PIXI.Sprite.from(resources.bg.texture)
+      bg.anchor.set(0)
+      // bg.x = app.screen.width
+      // bg.y = app.screen.height / 2
+      app.stage.addChild(bg)
 
-  const init = app.loader.onComplete.add(() => {
-    let throttled = false
-    let delay = 250
+      const bgMask = new PIXI.Graphics()
+      bgMask.beginFill(0xff3300, 0.4)
+      // drawRect (x, y, width, height)
+      bgMask.drawRect(0, 0, innerWidth / 2, innerHeight)
+      bgMask.endFill()
+      app.stage.addChild(bgMask)
 
-    class pixiCircle extends PIXI.Graphics {
-      constructor(radius) {
-        super()
-        this.lineStyle(0)
-        this.isMoving = false
-        this.radius = radius
-        this.beginFill(0xffffff, 0.41)
-        this.drawCircle(0, 0, radius)
-        this.endFill()
-        this.tint = Math.random() * 0xffffff
-        this.tl = gsap.timeline({
-          yoyo: true,
-          repeat: -1,
-          onComplete: () => {
-            console.log('complete')
-          },
+      bg.mask = bgMask
+
+      const tlMaskTime = 2
+      const tlMask = gsap
+        .timeline({
+          // yoyo: true,
+          // repeat: -1,
         })
-      }
-
-      clear() {
-        app.stage.removeChild(this)
-      }
-
-      draw() {
-        this.x = innerWidth - 4 * this.radius * Math.random()
-        this.y = innerHeight - 4 * this.radius * Math.random()
-      }
-
-      move() {
-        this.isMoving = true
-        // let time = this.radius - 2.6 * Math.random()
-        let time = 0.5
-
-        this.tl.to(this, time, {
-          pixi: {
-            y: innerHeight - 400,
+        .fromTo(
+          bgMask,
+          {
+            pixi: {
+              x: app.screen.width,
+            },
+            ease: 'sine',
           },
-        })
+          {
+            duration: tlMaskTime,
+            pixi: {
+              x: -app.screen.width,
+            },
+            ease: 'sine',
+          }
+        )
+        .fromTo(
+          bg,
+          {
+            pixi: {
+              x: app.screen.width,
+            },
+            ease: 'sine',
+          },
+          {
+            duration: (tlMaskTime * 4) / 5,
+            pixi: {
+              x: -app.screen.width,
+            },
+            ease: 'sine',
+            delay: -tlMaskTime,
+          }
+        )
+
+      const paused = () => {
+        tlMask.paused(!tlMask.paused())
       }
 
-      stop() {
-        this.isMoving = false
-        // let time = this.radius - 2.6 * Math.random()
-        let time = 0.5
-
-        this.tl.pause()
+      const play = () => {
+        tlMask.play()
+      }
+      const reset = () => {
+        tlMask.restart()
       }
 
-      toggle() {
-        // this.isMoving = false
-        // // let time = this.radius - 2.6 * Math.random()
-        // let time = 0.5
+      let throttled = false
+      let delay = 250
 
-        this.tl.paused(!this.tl.paused())
-      }
-    }
-
-    const resize = () => {
-      if (!throttled) {
-        innerWidth = window.innerWidth
-        innerHeight = window.innerHeight
-        circleClass.clear()
-        circleClass.draw()
-        throttled = true
-        setTimeout(function () {
-          throttled = false
-        }, delay)
-      }
-    }
-
-    const clearStage = () => {
-      app.stage.removeChildren()
-    }
-
-    const init = () => {
-      let container = new PIXI.Container()
-
-      const circles = []
-      for (let i = 0; i < 5; i++) {
-        let circle
-        let radius = 100 * Math.random() + 5
-        circle = new pixiCircle(radius)
-        container.addChild(circle)
-      }
-
-      app.stage.addChild(container)
-      console.log('store from PIXI', storeInstance.state.title)
-
-      for (const child of container.children) {
-        child.draw()
-        child.move()
-      }
-      // window.addEventListener('resize', resize)
-      // window.addEventListener('orientationchange', resize)
-      canvasContainer.appendChild(app.view)
-
-      storeInstance.subscribe(() => {
-        for (const child of container.children) {
-          child.toggle()
+      class pixiCircle extends PIXI.Graphics {
+        constructor(radius) {
+          super()
+          this.lineStyle(0)
+          this.isMoving = false
+          this.radius = radius
+          this.beginFill(0xffffff, 0.41)
+          this.drawCircle(0, 0, radius)
+          this.endFill()
+          this.tint = Math.random() * 0xffffff
+          this.tl = gsap.timeline({
+            yoyo: true,
+            repeat: -1,
+            onComplete: () => {
+              console.log('complete')
+            },
+          })
         }
-      })
-      app.ticker.add(() => {
-        // if (
-        //   !storeInstance.state.play &&
-        //   container.children &&
-        //   !container.children[0].isMoving
-        // ) {
-        //   // container.cacheAsBitmap = false
-        //   console.log('play is on')
-        //   for (const child of container.children) {
-        //     child.move()
-        //   }
-        // } else if (
-        //   storeInstance.state.play &&
-        //   container.children &&
-        //   container.children[0].isMoving
-        // ) {
-        //   // container.cacheAsBitmap = true
-        //   console.log('play is off')
-        //   for (const child of container.children) {
-        //     child.stop()
-        //   }
-        // }
-      })
-    }
 
-    init()
-  }) // called once when the queued resources all load.
+        clear() {
+          app.stage.removeChild(this)
+        }
+
+        draw() {
+          this.x = innerWidth - 4 * this.radius * Math.random()
+          this.y = innerHeight - 4 * this.radius * Math.random()
+        }
+
+        move() {
+          this.isMoving = true
+          // let time = this.radius - 2.6 * Math.random()
+          let time = 0.5
+
+          this.tl.to(this, time, {
+            pixi: {
+              y: innerHeight - 400,
+            },
+          })
+        }
+
+        stop() {
+          this.isMoving = false
+          // let time = this.radius - 2.6 * Math.random()
+          let time = 0.5
+
+          this.tl.pause()
+        }
+
+        toggle() {
+          // this.isMoving = false
+          // // let time = this.radius - 2.6 * Math.random()
+          // let time = 0.5
+
+          this.tl.paused(!this.tl.paused())
+        }
+      }
+
+      const resize = () => {
+        if (!throttled) {
+          innerWidth = window.innerWidth
+          innerHeight = window.innerHeight
+          circleClass.clear()
+          circleClass.draw()
+          throttled = true
+          setTimeout(function () {
+            throttled = false
+          }, delay)
+        }
+      }
+
+      const clearStage = () => {
+        app.stage.removeChildren()
+      }
+
+      const init = () => {
+        let container = new PIXI.Container()
+
+        const circles = []
+        for (let i = 0; i < 5; i++) {
+          let circle
+          let radius = 100 * Math.random() + 5
+          circle = new pixiCircle(radius)
+          container.addChild(circle)
+        }
+
+        app.stage.addChild(container)
+
+        for (const child of container.children) {
+          child.draw()
+          child.move()
+        }
+        // window.addEventListener('resize', resize)
+        // window.addEventListener('orientationchange', resize)
+        canvasContainer.appendChild(app.view)
+
+        // test custom event listener
+        document.addEventListener('togglePause', (e) => {
+          paused()
+        })
+
+        document.addEventListener('reset', (e) => {
+          reset()
+        })
+
+        app.ticker.add(() => {})
+      }
+
+      init()
+    })
+
+  const init = app.loader.onComplete.add(() => {}) // called once when the queued resources all load.
 }

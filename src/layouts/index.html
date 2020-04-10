@@ -4,6 +4,8 @@
   {{ partial "components/headers/header-home.html" . }}
 </header>
 
+{{.Content}}
+
 {{ range .Pages.ByWeight }}
 
 <section class="section-fullscreen">
