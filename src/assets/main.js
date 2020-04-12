@@ -2,8 +2,12 @@ import barba from '@barba/core'
 import gsap from 'gsap'
 import {pixiApp} from './js/pixiApp.js'
 
-console.log(window.location.href)
+// current slug
+// console.log(window.location.href)
 
+//
+// button handlers
+//
 const buttonHomePause = document.getElementById('home-button-pause')
 const buttonHomeReset = document.getElementById('home-button-reset')
 
@@ -18,6 +22,9 @@ buttonHomeReset.addEventListener('click', () => {
   document.dispatchEvent(eventReset)
 })
 
+//
+// barba options
+//
 const barbaOptions = {
   debug: true,
   transitions: [
@@ -66,6 +73,9 @@ const barbaOptions = {
   ],
 }
 
+//
+// posts class add
+//
 const addCSSTransitionClass = (event) => {
   event.target.classList.add('on')
 }
@@ -84,6 +94,7 @@ const observePostList = () => {
     )
     io.observe(posts[i])
   }
+  // console.log('posts', posts)
 }
 
 const removePostList = () => {
@@ -98,7 +109,20 @@ const removePostList = () => {
   }
 }
 
+//
+// DEMO
+//
+const observeDemo = () => {
+  let items = document.getElementsByClassName('demo')
+  for (let i = 0; i < items.length; i++) {
+    io.observe(items[i])
+  }
+  // console.log('demos', items)
+}
+
+//
 // Intersection observer
+//
 const ioOptions = {
   root: null,
   rootMargin: '0px 0px',
@@ -106,30 +130,73 @@ const ioOptions = {
   thresholds: [0.33],
 }
 
-const ioHandleIntersect = (entries) => {
-  for (const entry of entries) {
-    if (entry.isIntersecting) {
-      gsap.to(entry.target, {
-        duration: 1.2,
-        opacity: 1,
-        onStart: function () {},
-        onComplete: function () {},
-      })
-    } else {
-      gsap.to(entry.target, {
-        duration: 0.6,
-        opacity: 0,
-      })
-    }
-  }
+// const ioHandleIntersect = (entries) => {
+//   for (const entry of entries) {
+//     let red = entry.target.children[1]
+//     if (entry.isIntersecting) {
+//       console.log(entry)
+//       gsap.to(red, {
+//         duration: 0.6,
+//         opacity: 1,
+//         y: -40,
+//         onStart: function () {},
+//         onComplete: function () {},
+//       })
+//     } else {
+//       gsap.to(red, {
+//         duration: 0.6,
+//         opacity: 0,
+//         y: 40,
+//       })
+//     }
+//   }
+// }
+
+const observerElements = document.getElementsByClassName('wrapper')
+console.log('getElementsByClassName', observerElements)
+
+const observerOptions = {
+  root: null,
+  rootMargin: '0px 0px',
+  threshold: 0,
 }
 
-const io = new IntersectionObserver(ioHandleIntersect, ioOptions)
+for (const el of observerElements) {
+  const box = el.querySelector('.child')
+  el.tl = gsap.timeline({paused: true})
+
+  el.tl.to(box, 1, {y: -180, ease: Linear.easeNone})
+
+  el.observer = new IntersectionObserver((entry) => {
+    if (entry[0].intersectionRatio > 0) {
+      gsap.ticker.add(el.progressTween)
+    } else {
+      gsap.ticker.remove(el.progressTween)
+    }
+  }, observerOptions)
+
+  el.progressTween = () => {
+    //       parallax calculations
+    const scrollPosition = window.scrollY + window.innerHeight
+    const elPosition = scrollPosition - el.offsetTop
+    const durationDistance = window.innerHeight + el.offsetHeight
+    const currentProgress = elPosition / durationDistance
+    el.tl.progress(currentProgress)
+  }
+
+  el.observer.observe(el)
+}
+
+//
+// init
+//
+// const io = new IntersectionObserver(ioHandleIntersect, ioOptions)
 const canvasContainer = document.getElementById('canvasContainer')
 window.addEventListener('load', (event) => {
   if (canvasContainer) {
     pixiApp()
   }
-  observePostList()
+  // observePostList()
+  // observeDemo()
   barba.init(barbaOptions)
 })

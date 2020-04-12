@@ -6,13 +6,28 @@
 
 {{.Content}}
 
-{{ range .Pages.ByWeight }}
+<!-- {{ range .Pages.ByWeight }}
 
 <section class="section-fullscreen">
-  <a href="{{.RelPermalink}}">
-    {{ partial "components/headers/header-attention" (dict "text" .Type)}}
-  </a>
+
+  <div class="wrapper">
+    <a href="{{.RelPermalink}}">
+      {{ partial "components/headers/header-attention" (dict "text" .Type)}}
+    </a>
+    <div class="parent">
+      <div class="child">
+        <img
+          class="absolute w-48"
+          src="./texture-portrait-690x1227.webp"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+
   {{.Params.description}}
 </section>
 
-{{ end }} {{ end }}
+{{ end }} -->
+
+{{ end }}

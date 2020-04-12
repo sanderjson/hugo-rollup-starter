@@ -1,3 +1,8 @@
+/* @import './tailwind/tailwind.css';
+@import './tailwind/tailwind.utilities.css'; */
+
+/* tailwind */
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -13946,6 +13951,8 @@ video {
   transition-duration: 1000ms;
 }
 
+/* utilities */
+
 .btn {
   background-color: #f56565;
   font-weight: 700;
@@ -13958,6 +13965,10 @@ video {
   border-width: 1px;
   display: inline-block;
   margin-bottom: 0.5rem;
+}
+
+html {
+  /* scroll-behavior: smooth; */
 }
 
 .example {
@@ -13994,7 +14005,8 @@ body {
 }
 
 .heading-attention {
-  font-size: 144px;
+  /* font-size: 144px; */
+  font-size: 48px;
 }
 
 /* JS HOVER TRANSITIONS */
@@ -14007,26 +14019,7 @@ body {
   opacity: 1;
 }
 
-.scroll-container {
-  max-height: 100vh;
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
-
-.scroll-child {
-  scroll-snap-align: start;
-  padding-top: 20%;
-}
-
-.scroll-child:nth-of-type(2n) {
-  background: aliceblue;
-}
-
-.scroll-child--header {
-  scroll-snap-align: start;
-  padding-top: 0;
-}
+/* PixiJS canvas */
 
 #canvasContainer {
   position: fixed;
@@ -14034,12 +14027,47 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  border: 8px solid red;
-  /* overflow: hidden;
+  border: 1px solid teal;
+}
+
+.section-fullscreen {
+  min-height: 568px;
+  height: 120vh;
+}
+
+.trigger-element {
+  display: inline-block;
+}
+
+/* demo */
+
+.wrapper {
+  position: relative;
+  margin: 60px auto;
+  background: red;
+  height: 83%;
   width: 100%;
-  height: 100%; */
-  /* z-index: -1; */
-  /* position: fixed; */
+}
+
+.parent,
+.child {
+  position: absolute;
+}
+
+.parent {
+  width: 100%;
+  height: 100%;
+}
+
+.child {
+  /* width: 200px;
+  height: 100px; */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (min-width: 640px) {
@@ -67341,3 +67369,5 @@ body {
     transition-duration: 1000ms;
   }
 }
+
+

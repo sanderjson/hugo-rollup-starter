@@ -1,5 +1,7 @@
-<section id="3" class="section-fullscreen" role="banner">
-  {{ partial "components/headers/header-attention" (dict "text" (.Get "text") )}}
+<section class="section-fullscreen" role="banner">
+  <div class="bg-blue-200 h-screen">
+    {{ partial "components/headers/header-attention" (dict "text" (.Get "text") )}}
 
-  {{ .Inner}}
+    {{ .Inner}}
+</div>
 </section>

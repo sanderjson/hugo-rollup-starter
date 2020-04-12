@@ -45,7 +45,6 @@ body {
 .heading-attention {
   /* font-size: 144px; */
   font-size: 48px;
-
 }
 
 /* JS HOVER TRANSITIONS */
@@ -68,10 +67,41 @@ body {
 }
 
 .section-fullscreen {
-  border: 2px solid purple;
   min-height: 568px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 120vh;
 }
+
+.trigger-element {
+  display: inline-block;
+}
+
+/* demo */
+.wrapper {
+  position: relative;
+  margin: 60px auto;
+  background: red;
+  height: 83%;
+  width: 100%;
+}
+
+.parent,
+.child {
+  position: absolute;
+}
+
+.parent {
+  width: 100%;
+  height: 100%;
+}
+
+.child {
+  /* width: 200px;
+  height: 100px; */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  object-fit: cover;
+}
+
+
