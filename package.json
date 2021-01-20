@@ -23,7 +23,7 @@
     "@rollup/plugin-replace": "^2.3.1",
     "autoprefixer": "^9.7.6",
     "beedle": "^0.8.1",
-    "gsap": "^3.2.6",
+    "gsap": "^3.6.0",
     "nice-color-palettes": "^3.0.0",
     "parcel": "^2.0.0-nightly.207",
     "pixi-layers": "^0.2.3",
